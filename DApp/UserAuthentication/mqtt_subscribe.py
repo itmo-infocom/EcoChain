@@ -37,7 +37,7 @@ def on_message(mosq, obj, msg):
 
 	accountBal = conn.checkAccount(accountNo) 
 
-	if accountBal > limit:
+	if accountBal > 5:
 		print "User Authenticated"
 		print "User has balance: ",accountBal
 		# An Open lid message is sent to the Waste Bin using mqtt protocol

@@ -1,0 +1,8 @@
+1# Run the mqtt_subscribe.py
+
+	python mqtt_subscribe.py
+
+2# Run the mqtt_publish.py
+	
+	python mqtt_publish.py
+
