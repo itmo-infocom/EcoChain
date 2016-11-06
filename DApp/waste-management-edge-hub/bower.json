@@ -1,0 +1,9 @@
+{
+  "name": "waste-management-edge-hub",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ]
+}
