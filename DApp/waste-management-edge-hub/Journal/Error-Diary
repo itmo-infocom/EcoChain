@@ -1,0 +1,28 @@
+1. etherbase address must be explicitly specified
+
+Solution: Coinbase is not set.
+
+	what is Coinbase?
+
+		http://ethereum.stackexchange.com/questions/3081/what-is-coinbase
+	Coinbase is generally the first account in your keystore by default. But if you have many accounts, you can set the coinbase as one of these options and all the mining rewards will be sent to this coinbase.
+
+
+https://forum.ethereum.org/discussion/2594/reminder-set-your-coinbase-before-you-start-mining-else-you-will-not-get-your-block-reward
+
+
+2. How to get balance in from JS API?
+
+	http://stackoverflow.com/questions/32312884/how-do-i-get-the-balance-of-an-account-in-ethereum
+
+3. How to mount a device in start up to linux?
+
+	http://askubuntu.com/questions/154180/how-to-mount-a-new-drive-on-startup
+
+4. Geth / RPC to geth shows 0 balance.
+
+	http://stackoverflow.com/questions/36210228/my-ethereum-balance-seems-to-be-0-when-checked-via-geth
+
+5. How to run geth ipc / attach a new console session to an existing geth session ?
+
+	geth attach ipc://<location of data directory>/geth.ipc

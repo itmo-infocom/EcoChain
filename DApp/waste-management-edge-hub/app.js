@@ -16,6 +16,7 @@ var compile = require('./routes/compile');
 var mqtt_sgb = require('./routes/mqtt-sgb');
 var mqtt_edge = require('./routes/mqtt-edge-hub');
 var test_mqtt = require('./routes/test-mqtt');
+var stat = require('./routes/stat');
 
 var app = express();
 
@@ -46,6 +47,7 @@ app.use('/compile',compile);
 app.use('/sgb',mqtt_sgb);
 app.use('/edge',mqtt_edge);
 app.use('/mqttest',test_mqtt);
+app.use('/stat',stat);
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

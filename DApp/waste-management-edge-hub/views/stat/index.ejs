@@ -1,0 +1,12 @@
+
+  <% include ../header %>	
+  
+  <h1><%-title %></h1>
+  <% for(var i=0; i<stat.length; i++) { %>
+           <p>
+          <%= stat[i][0] %> : <%= stat[i][1] %>
+           </p>
+       <% } %>
+
+  <% include ../footer %>
+  
