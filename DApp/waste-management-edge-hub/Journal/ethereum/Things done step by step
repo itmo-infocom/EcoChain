@@ -1,0 +1,30 @@
+1. Downloaded geth
+
+2. Attached a 100GB volume to Openstack ubuntu instance
+
+3. Mounted the attached volume to the Openstack ubuntu instance's /mnt directory in startup (refer to error log regarding the process)
+
+4. A new account in this node is created (accounts can be imported as well, but since this is new deployment, a new account is created)
+
+	Coinbase is the account that gets reward for the minings done by the node. If a coinbase is not set, the first account that was created in the node is set as coinbase
+	by default.
+
+5. Geth RPC is started on start up and the data directory is set as /mnt using a shell script. The shell script is executed during start up.
+
+	The code in the shell script is:
+
+		/usr/bin/geth --datadir "/mnt/ITMOChain/devChain" --testnet --rpc --rpcport "5678" --rpcaddr "0.0.0.0" --rpccorsdomain "*" || logger "Geth not running"
+
+
+	And /etc/rc.local file is edited as:
+
+		#Script to run geth testnet on startup
+		sh /home/user/startTestNet.sh || logger "Geth testnet not running"
+		exit 0
+
+Now geth will start downloading the blocks in testnet. After all the blocks are downloaded, it will start mining the new blocks and the ether balance in the coinbase increases gradually
+
+
+6. Now remote RPC calls can be made to this node using the IP and port number from web3.js or any curl request. 
+
+NOTE: If a transfer to this new account	is made, the RPC calls to this node may not reflect the balances immediately. My guess is, this is because this node is not aware of the transaction (since the block that has the transaction may not have been downloaded in this node by now).

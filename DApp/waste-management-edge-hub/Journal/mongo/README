@@ -1,0 +1,4 @@
+1. Install mongod which is the mongdb server
+2. Install mongo which is a cli client
+3. Run mongod 
+4. interact with the database using the mongod cli

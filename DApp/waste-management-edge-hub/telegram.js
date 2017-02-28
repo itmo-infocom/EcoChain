@@ -4,8 +4,6 @@
     var Web3 = require('web3');
     var http = require("http");
 
-
-
     /*To make sure you don't overwrite the already set provider when in mist, check first if the web3 is available:*/
 
     if (typeof web3 !== 'undefined') {
