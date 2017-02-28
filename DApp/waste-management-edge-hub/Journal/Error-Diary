@@ -26,3 +26,69 @@ https://forum.ethereum.org/discussion/2594/reminder-set-your-coinbase-before-you
 5. How to run geth ipc / attach a new console session to an existing geth session ?
 
 	geth attach ipc://<location of data directory>/geth.ipc
+
+6. What does unlocking an account mean?
+
+	http://ethereum.stackexchange.com/questions/4157/how-to-unlock-the-account-with-geth
+
+	To send balance from an account using geth or rpc an account should be unlocked first. By default it is locked. To unlock, the pass phrase entered while creating the account is to be used. The command:
+
+	geth --unlock <YOUR_ACCOUNT_ADDRESS> --password <YOUR_PASSWORD>
+
+	or using ipc it can be done as:
+
+	web3.personal.unlockAccount("<Account address>")
+
+	or use a password the txt file and put passwords in order of the accounts. If there are two accounts, first line in password.txt should be passpharse of first account and
+	second line should be the passphare of second account.
+
+7. How to create a private testnet?
+
+	genesis.json	
+
+	{
+    "nonce": "0x0000000000000042",
+    "timestamp": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x0",
+    "gasLimit": "0x8000000",
+    "difficulty": "0x400",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x3333333333333333333333333333333333333333",
+    "alloc": {
+
+
+    	}
+	}
+
+
+	startnet.sh
+
+	#!/bin/bash
+
+	sudo /usr/bin/geth  --datadir="/mnt/ITMOChain/devChain" init itmo-genesis.json
+	sudo /usr/bin/geth --identity "ITMOMainNode" --datadir "/mnt/ITMOChain/devChain" --rpc --rpcport "5678" --rpcaddr "0.0.0.0" --rpccorsdomain "*" --port "30303" --nodiscover --ipcapi "admin,db,eth,debug,miner,net,shh,txpool,pe$
+
+	NOTE: The first script of startnet.sh is to be run only once to initiate the genesis.json file
+	After that it is to be commented. After the node is running, create an account (either using ipc or just geth. IPC method is easier, less hassel). After the account is create, the genesis.json file is to be edited as follows:
+
+	genesis.json	
+
+	{
+    "nonce": "0x0000000000000042",
+    "timestamp": "0x0",
+    "parentHash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "extraData": "0x0",
+    "gasLimit": "0x8000000",
+    "difficulty": "0x400",
+    "mixhash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "coinbase": "0x3333333333333333333333333333333333333333",
+    "alloc": {
+
+    		"<newly created account >" : { "balance": 10000000000000000000000 }
+
+    	}
+	}
+
+	NOTE: The balance in above file is in Wei where 10^18 Wei = 1 ETH
+

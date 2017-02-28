@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 var app = require('../app');
+var bot = require('../telegram.js');
+
 
 app.set('port', process.env.PORT || 3000);
 

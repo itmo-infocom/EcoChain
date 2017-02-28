@@ -13,7 +13,7 @@
 
 	The code in the shell script is:
 
-		/usr/bin/geth --datadir "/mnt" --testnet --rpc --rpcport "5678" --rpcaddr "0.0.0.0" --rpccorsdomain "*" || logger "Geth not running"
+		/usr/bin/geth --datadir "/mnt/ITMOChain/devChain" --testnet --rpc --rpcport "5678" --rpcaddr "0.0.0.0" --rpccorsdomain "*" || logger "Geth not running"
 
 
 	And /etc/rc.local file is edited as:
