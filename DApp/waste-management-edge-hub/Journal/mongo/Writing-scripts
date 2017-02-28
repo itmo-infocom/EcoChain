@@ -1,0 +1,7 @@
+To batch import dummy data to mongodb, a script can be written with the data and it can be run using the mongoshell. An example of such script can be found in mongo-script folder.
+
+In linux shell, following command can be run:
+
+ mongo localhost:27017/<db_name> <script-name>.js
+
+ 
